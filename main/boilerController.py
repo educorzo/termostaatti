@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
-from main import boiler
+from main.boiler import boiler
 
 @api_view(['GET'])
 def check(request):
