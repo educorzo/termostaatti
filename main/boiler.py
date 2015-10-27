@@ -8,8 +8,8 @@ class boiler:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(12, GPIO.OUT)
         
-    def turnOn():
+    def turnOn(self):
         GPIO.output(12, True)
     
-    def turnOff():
+    def turnOff(self):
         GPIO.output(12,False)
