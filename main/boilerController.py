@@ -12,7 +12,7 @@ def check(request):
     return Response(content)
 
 @api_view(['GET'])
-def turnoOn(request):
+def turnOn(request):
     caldera = boiler()
     caldera.turnOn()
     content = {'Success': 'Todo va bien!'}
