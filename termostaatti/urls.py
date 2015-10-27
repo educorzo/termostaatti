@@ -7,5 +7,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^home/','main.views.home',name='home')
+    url(r'^home/','main.views.home',name='home'),
+    url(r'^check/','main.boilerController.check'),#GET
+    url(r'^encender/','main.boilerController.turnOn'),#GET
 )
