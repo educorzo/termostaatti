@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^home/','main.views.home',name='home'),
     url(r'^check/','main.boilerController.check'),#GET
     url(r'^encender/','main.boilerController.turnOn'),#GET
+    url(r'^apagar/','main.boilerController.turnOff'),#GET
 )

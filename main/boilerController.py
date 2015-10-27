@@ -15,5 +15,12 @@ def check(request):
 def turnOn(request):
     caldera = boiler()
     caldera.turnOn()
-    content = {'Success': 'Todo va bien!'}
+    content = {'Success': 'Caldera encendida!'}
+    return Response(content)
+
+@api_view(['GET'])
+def turnOff(request):
+    caldera = boiler()
+    caldera.turnOff()
+    content = {'Success': 'Caldera apagada!'}
     return Response(content)
