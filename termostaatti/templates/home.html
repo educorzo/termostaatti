@@ -1,13 +1,16 @@
 <!DOCTYPE html>
+<html ng-app="appname">
 
-<html>
-<head>
-    <title>HOLA</title>
-</head>
-
+  <head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <link href="style.css" rel="stylesheet"/>
+    <script src="{{STATIC_URL}}script.js"></script>
+  </head>
+{% verbatim %}
 <body>
-<h4>HEYYY</h4>
-
-
-</body>
+    <div ng-controller="appCtrl">
+      <p>{{greeting.text}}, world </p>
+    </div>
+  </body>
+{% endverbatim %}
 </html>
