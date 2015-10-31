@@ -1,6 +1,6 @@
 var appname = angular.module('appname', []);
 appname.controller('appCtrl', ['$scope',
-  function($scope) {
+  function($scope, $http) {
      $http({method: 'GET',url: '/temperatura'})
      .then(function successCallback(response) {
             $scope.greeting = response
