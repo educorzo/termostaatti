@@ -19,7 +19,7 @@ class Thermometter:
         lines = out_decode.split('\n')
         return lines
     
-    def readTemp():
+    def getTemp():
         lines = read_temp_raw()
         while lines[0].strip()[-3:] != 'YES':
             time.sleep(0.2)
