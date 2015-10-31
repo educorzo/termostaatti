@@ -12,14 +12,14 @@ device_file = device_folder + '/w1_slave'
  
 class Thermometter:
     
-    def readTempRaw():
+    def readTempRaw(self):
         catdata = subprocess.Popen(['cat',device_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out,err = catdata.communicate()
         out_decode = out.decode('utf-8')
         lines = out_decode.split('\n')
         return lines
     
-    def getTemp():
+    def getTemp(self):
         lines = read_temp_raw()
         while lines[0].strip()[-3:] != 'YES':
             time.sleep(0.2)
