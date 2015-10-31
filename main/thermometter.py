@@ -20,7 +20,7 @@ class Thermometter:
         return lines
     
     def getTemp(self):
-        lines = read_temp_raw()
+        lines = readTempRaw()
         while lines[0].strip()[-3:] != 'YES':
             time.sleep(0.2)
             lines = readTempRaw()
