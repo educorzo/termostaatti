@@ -2,15 +2,25 @@
 <html ng-app="appname">
 
   <head>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <link href="{{STATIC_URL}}/css/bootstrap.min.css" media="screen" rel="stylesheet">
     <link href="style.css" rel="stylesheet"/>
-    <script src="{{STATIC_URL}}script.js"></script>
+    <script src="{{STATIC_URL}}/js/jquery.min.js"></script>
+    <script src="{{STATIC_URL}}/js/bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}/js/angular.min.js"></script>
+    <script src="{{STATIC_URL}}/js/script.js"></script>
   </head>
 {% verbatim %}
 <body>
-    <div ng-controller="appCtrl">
-      <p>{{greeting.text}}, world </p>
+    <div class="jumbotron">
+      <div class="container vertical-center">
+
+      <div ng-controller="appCtrl">
+        <p>{{greeting.text}}, world </p>
+      </div>
+      <p><a class="btn btn-primary btn-lg" href="../encender" role="button">Encender</a></p>
+      <p><a class="btn btn-primary btn-lg" href="../apagar" role="button">Apagar</a></p>
+        </div>
     </div>
-  </body>
+</body>
 {% endverbatim %}
 </html>
