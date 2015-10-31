@@ -3,8 +3,8 @@ appname.controller('appCtrl', ['$scope','$http',
   function($scope, get) {
      get({method: 'GET',url: '/temperatura'})
      .then(function successCallback(response) {
-            $scope.greeting = {text : response.data.Temperature}
+            $scope.temperature = {text : response.data.Temperature+'º'}
         }, function errorCallback(response) {
-            $scope.greeting ={ text: 'Hello' };
+            $scope.temperature ={ text: 'Error' };
         });
 }]);
