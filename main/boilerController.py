@@ -13,14 +13,14 @@ def check(request):
 
 @api_view(['GET'])
 def turnOn(request):
-    caldera = boiler()
+    caldera = Boiler()
     caldera.turnOn()
     content = {'Success': 'Caldera encendida!'}
     return Response(content)
 
 @api_view(['GET'])
 def turnOff(request):
-    caldera = boiler()
+    caldera = Boiler()
     caldera.turnOff()
     content = {'Success': 'Caldera apagada!'}
     return Response(content)

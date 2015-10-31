@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import time
 
 
-class boiler:
+class Boiler:
     def __init__(self):
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(12, GPIO.OUT)
