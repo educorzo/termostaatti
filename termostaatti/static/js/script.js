@@ -13,7 +13,7 @@ termostaatti.controller('buttonCtrl', ['$scope','$http',
    function($scope, post) {
       $scope.req = {
          method: 'POST',
-         url: '',
+         url: '../caldera',
          headers: {'Content-Type': undefined},
          data: { state: 'off' }
       };
