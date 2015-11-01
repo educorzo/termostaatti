@@ -39,6 +39,6 @@ def setBoiler(request):
         else:
             content = {'Error': 'Formato no reconocido'}
     except MultiValueDictKeyError :
-        content={'Error':'Algo ha ido mal!'}
+        content={'Error':request}
     return Response(content)
 
