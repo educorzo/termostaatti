@@ -24,3 +24,20 @@ def turnOff(request):
     caldera.turnOff()
     content = {'Success': 'Caldera apagada!'}
     return Response(content)
+
+@api_view(['POST'])
+def setBoiler(request):
+    caldera = Boiler()
+    try:
+        if request.POST['state']=='on' :
+            caldera.turnOn()
+            content = {'Success': 'Caldera encendida!'}
+        elif request.POST['state']=='off' :
+            caldera.turnOff()
+            content = {'Success': 'Caldera apagada!'}
+        else:
+            content = {'Error': 'Formato no reconocido'}
+    except MultiValueDictKeyError :
+        content={'Error':'Algo ha ido mal!'}
+    return Response(content)
+
