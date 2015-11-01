@@ -15,13 +15,13 @@ termostaatti.controller('buttonCtrl', ['$scope','$http',
          method: 'POST',
          url: 'http://192.168.1.129:8000/caldera/',
          headers: {'Content-Type': 'application/json'},
-         data: { state: 'off' }
+         data: JSON.stringify({ state: 'on' })
       };
       $scope.showEncender = true;
       $scope.showApagar = false;
       
       $scope.encender = function() {
-         $scope.req.data.state='on';
+        // $scope.req.data.state='on';
          post($scope.req).then(function(){
             $scope.showEncender = false;
             $scope.showApagar = true; 
