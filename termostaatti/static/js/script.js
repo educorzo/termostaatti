@@ -13,8 +13,7 @@ termostaatti.controller('buttonCtrl', ['$scope','$http',
    function($scope, post) {
       $scope.req = {
          method: 'POST',
-         url: 'http://192.168.1.129:8000/caldera',
-         headers: {'Content-Type': undefined},
+         url: 'http://192.168.1.129:8000/caldera/',
          data: { state: 'off' }
       };
       $scope.showEncender = true;
