@@ -14,6 +14,7 @@ termostaatti.controller('buttonCtrl', ['$scope','$http',
       $scope.req = {
          method: 'POST',
          url: 'http://192.168.1.129:8000/caldera/',
+         headers: {'Content-Type': 'application/json'},
          data: { state: 'off' }
       };
       $scope.showEncender = true;
