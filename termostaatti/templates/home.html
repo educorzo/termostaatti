@@ -2,26 +2,27 @@
 <html ng-app="appname">
 
   <head>
-    <link href="{{STATIC_URL}}/css/bootstrap.min.css" media="screen" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="style.css" rel="stylesheet"/>
-    <script src="{{STATIC_URL}}/js/jquery.min.js"></script>
-    <script src="{{STATIC_URL}}/js/bootstrap.min.js"></script>
     <script src="{{STATIC_URL}}/js/angular.min.js"></script>
     <script src="{{STATIC_URL}}/js/script.js"></script>
+    <script src="{{STATIC_URL}}/js/jquery.min.js"></script>
+    <script src="{{STATIC_URL}}/js/bootstrap.min.js"></script>
+    <link href="{{STATIC_URL}}/css/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
-{% verbatim %}
-<body>
-    <div class="jumbotron">
-      <div class="container vertical-center">
-        <div ng-controller="appCtrl">
-          <p>{{temperature.text}}</p>
+  {% verbatim %}
+  <body>
+      <div class="jumbotron">
+        <div class="container" style="text-align: center">
+          <div ng-controller="appCtrl" >
+            <h1>{{temperature.text}}</h1>
+          </div>
+          <div ng-controller="buttonCtrl">
+            <button class="btn btn-danger btn-lg" ng-click="encender()" ng-show="showEncender">Encender</button>
+            <button class="btn btn-info btn-lg" ng-click="apagar()" ng-show="showApagar">Apagar</button>
+          </div>
         </div>
-      <div ng-controller="buttonCtrl">
-          <button class="btn btn-danger btn-lg" ng-click="encender()" ng-show="showEncender">Encender</button>
-          <button class="btn btn-info btn-lg" ng-click="apagar()" ng-show="showApagar">Apagar</button>
       </div>
-      </div>
-    </div>
-</body>
-{% endverbatim %}
+  </body>
+  {% endverbatim %}
 </html>
