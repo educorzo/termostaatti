@@ -5,10 +5,9 @@ import sys
 
 boiler = Boiler()
 thermometter = Thermometter()
-themperature = sys.argv[1]
+themperature = float(sys.argv[1])
 if thermometter.getTemp() < themperature:
-    if !boiler.getState() :
-        boiler.turnOn()
+    boiler.turnOn()
 else:
     boiler.turnOff()
 

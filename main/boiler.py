@@ -6,6 +6,7 @@ import time
 class Boiler:
     
     def __init__(self):
+        GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(12, GPIO.OUT)
         
