@@ -9,6 +9,29 @@ termostaatti.controller('appCtrl', ['$scope','$http',
         });
 }]);
 
+termostaatti.controller('setTemperatureCtrl',['$scope','$http',
+        function($scope, post) {
+                $scope.req = {
+                        method: 'POST',
+                        url: '/temperatura/',
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=$'},
+                        data: 'temperature = 20'
+                };
+                $scope.editTemperature = 20;
+                $scope.disminuir = function(){
+                        $scope.editTemperature = $scope.editTemperature - 1;
+                };
+                $scope.aumentar = function(){
+                        $scope.editTemperature = $scope.editTemperature + 1;
+                };
+                $scope.setTemperature = function(){
+                        $scope.req.data = 'temperature='+$scope.editTemperature;
+                        post($scope.req).then(function(response){
+
+                        });
+                };
+}]);
+
 termostaatti.controller('buttonCtrl', ['$scope','$http',
    function($scope, post) {
       $scope.req = {

@@ -11,18 +11,24 @@
     <link href="{{STATIC_URL}}/css/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
   {% verbatim %}
-  <body>
-      <div class="jumbotron">
-        <div class="container" style="text-align: center">
-          <div ng-controller="appCtrl" >
-            <h1>{{temperature.text}}</h1>
-          </div>
-          <div ng-controller="buttonCtrl">
-            <button class="btn btn-danger btn-lg" ng-click="encender()" ng-show="showEncender">Encender caldera</button>
-            <button class="btn btn-info btn-lg" ng-click="apagar()" ng-show="showApagar">Apagar caldera</button>
-          </div>
+    <body>
+        <div class="jumbotron">
+            <div class="container" style="text-align: center">
+                <div ng-controller="appCtrl" >
+                    <h4>Hacen {{temperature.text}}</h4>
+                </div>
+                <div ng-controller="setTemperatureCtrl">
+                    <h1>{{editTemperature}}º</h1>
+                    <button class="btn btn-danger" ng-click="disminuir()">-</button>
+                    <button class="btn btn-info" ng-click="aumentar()">+</button>
+                    <button class="btn btn-primary" ng-click="setTemperature()">Iniciar</button>
+                </div>
+                <div ng-controller="buttonCtrl">
+                    <button class="btn btn-danger btn-lg" ng-click="encender()" ng-show="showEncender">Encender caldera</button>
+                    <button class="btn btn-info btn-lg" ng-click="apagar()" ng-show="showApagar">Apagar caldera</button>
+                </div>
+            </div>
         </div>
-      </div>
-  </body>
+    </body>
   {% endverbatim %}
 </html>
