@@ -13,7 +13,7 @@ termostaatti.controller('setTemperatureCtrl',['$scope','$http',
         function($scope, post) {
                 $scope.req = {
                         method: 'POST',
-                        url: '/temperatura/',
+                        url: '/temperatura',
                         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=$'},
                         data: 'temperature = 20'
                 };

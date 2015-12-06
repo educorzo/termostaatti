@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from main.thermometter import Thermometter
 from main.crontabJob import CrontabJob
+from django.utils.datastructures import MultiValueDictKeyError
 
 @api_view(['GET'])
 def getTemperature(request):
