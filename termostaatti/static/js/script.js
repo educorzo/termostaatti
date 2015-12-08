@@ -13,7 +13,7 @@ termostaatti.controller('setTemperatureCtrl',['$scope','$http',
         function($scope, post) {
                 $scope.req = {
                         method: 'POST',
-                        url: '/temperatura',
+                        url: '/settemperatura/',
                         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=$'},
                         data: 'temperature = 20'
                 };
@@ -42,20 +42,20 @@ termostaatti.controller('buttonCtrl', ['$scope','$http',
       };
       $scope.showEncender = true;
       $scope.showApagar = false;
-      
+
       $scope.encender = function() {
         $scope.req.data = 'state=on';
          post($scope.req).then(function(response){
             $scope.showEncender = false;
-            $scope.showApagar = true; 
+            $scope.showApagar = true;
          });
       };
-      
+
       $scope.apagar = function() {
          $scope.req.data = 'state=off';
          post($scope.req).then(function(response){
             $scope.showEncender = true;
-            $scope.showApagar = false; 
+            $scope.showApagar = false;
          });
       };
 }]);

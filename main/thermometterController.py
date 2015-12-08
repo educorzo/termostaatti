@@ -19,8 +19,10 @@ def setTemperature(request):
     crontabJob = CrontabJob()
     try:
         temperature = request.POST['temperature']
+        crontabJob.deleteCronoJobs()
         crontabJob.setTemperature(temperature)
         content = {'Success': 'La caldera comenzara cuando la temperatura sea inferior a '+temperature}
     except MultiValueDictKeyError :
         content={'Error':request}
     return Response(content)
+
