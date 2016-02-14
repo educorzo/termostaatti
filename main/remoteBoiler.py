@@ -6,10 +6,10 @@ import urllib2
 class Boiler:
         
     def turnOn(self):
-        urllib2.urlopen("192.168.1.141/on").read()
+        urllib2.urlopen("http://192.168.1.141/on").read()
     
     def turnOff(self):
-        urllib2.urlopen("192.168.1.141/off").read()
+        urllib2.urlopen("http://192.168.1.141/off").read()
 
     def getState(self):
-        return urllib2.urlopen("192.168.1.141/check").read()
+        return urllib2.urlopen("http://192.168.1.141/check").read()
