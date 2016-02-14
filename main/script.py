@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from thermometter import Thermometter
-from boiler import Boiler
+from remoteBoiler import Boiler
 import sys
 
 boiler = Boiler()
