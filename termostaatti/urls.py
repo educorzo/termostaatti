@@ -13,5 +13,6 @@ urlpatterns = patterns('',
     url(r'^apagar/','main.boilerController.turnOff'),#GET
     url(r'^caldera/','main.boilerController.setBoiler'), #POST
     url(r'^temperatura/','main.thermometterController.getTemperature'),#GET
+    url(r'^getsettedtemperatura/','main.thermometterController.getSettedTemperature'),#GET
     url(r'^settemperatura/','main.thermometterController.setTemperature')#POST
 )

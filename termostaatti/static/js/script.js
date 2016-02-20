@@ -11,13 +11,19 @@ termostaatti.controller('appCtrl', ['$scope','$http',
 
 termostaatti.controller('setTemperatureCtrl',['$scope','$http',
         function($scope, post) {
-                $scope.req = {
+                $scope.setTemperatureReq = {
                         method: 'POST',
                         url: '/settemperatura/',
                         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=$'},
                         data: 'temperature = 20'
                 };
-                $scope.editTemperature = 20;
+                get({method: 'GET',url: '/getsettedtemperatura'})
+                    .then(function successCallback(response){
+                        $scope.editTemperaturetemperature = response.data.Temperature
+                    },function errorCallback(response) {
+                        $scope.editTemperature =20;
+                    });
+                
                 $scope.disminuir = function(){
                         $scope.editTemperature = $scope.editTemperature - 1;
                 };
@@ -25,8 +31,8 @@ termostaatti.controller('setTemperatureCtrl',['$scope','$http',
                         $scope.editTemperature = $scope.editTemperature + 1;
                 };
                 $scope.setTemperature = function(){
-                        $scope.req.data = 'temperature='+$scope.editTemperature;
-                        post($scope.req).then(function(response){
+                        $scope.setTemperatureReq.data = 'temperature='+$scope.editTemperature;
+                        post($scope.setTemperatureReq).then(function(response){
 
                         });
                 };

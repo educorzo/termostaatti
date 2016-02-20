@@ -13,6 +13,13 @@ class CrontabJob:
         job.minute.every(1)
         self.cron.write()
     
+    def getTemperature(self):
+        job = self.cron.find_comment('Termostaati')
+        if job :
+            return job[58:60]
+        else:
+            return 0
+
     def deleteCronoJobs(self):
         self.cron.remove_all(comment='Termostaati')
     

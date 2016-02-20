@@ -14,6 +14,12 @@ def getTemperature(request):
     content = {'Temperature': thermometter.getTemp()}
     return Response(content)
 
+@api_view(['GET'])
+def getSettedTemperature(request):
+    crontabJob = CrontabJob()
+    content = {'Temperature': crontabJob.getTemperature()}
+    return Response(content)
+
 @api_view(['POST'])
 def setTemperature(request):
     crontabJob = CrontabJob()

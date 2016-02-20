@@ -9,21 +9,20 @@ from main.remoteBoiler import Boiler
 
 @api_view(['GET'])
 def check(request):
-    content = {'Success': 'Todo va bien!'}
+    caldera = Boiler()
+    content = caldera.getState()
     return Response(content)
 
 @api_view(['GET'])
 def turnOn(request):
     caldera = Boiler()
-    caldera.turnOn()
-    content = {'Success': 'Caldera encendida!'}
+    content = caldera.turnOn()
     return Response(content)
 
 @api_view(['GET'])
 def turnOff(request):
     caldera = Boiler()
-    caldera.turnOff()
-    content = {'Success': 'Caldera apagada!'}
+    content = caldera.turnOff()
     return Response(content)
 
 @api_view(['POST'])
@@ -31,15 +30,13 @@ def setBoiler(request):
     caldera = Boiler()
     try:
         if request.POST['state']=='on' :
-            caldera.turnOn()
-            content = {'Success': 'Caldera encendida!'}
+            content = caldera.turnOn()
         elif request.POST['state']=='off' :
-            caldera.turnOff()
-            content = {'Success': 'Caldera apagada!'}
+            content = caldera.turnOff()
         else:
-            content = {'Error': 'Formato no reconocido'}
+            content = {'state': 'Format not recognized'}
     except MultiValueDictKeyError :
-        content={'Error':request}
+        content={'state':request}
     return Response(content)
 
 
