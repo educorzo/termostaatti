@@ -9,31 +9,41 @@ termostaatti.controller('appCtrl', ['$scope','$http',
         });
 }]);
 
-termostaatti.controller('setTemperatureCtrl',['$scope','$http',
-        function($scope, post) {
+termostaatti.controller('setTemperatureCtrl',['$scope','$http',        
+                                              
+
+        function($scope, http) {
+                http({method: 'GET',url: '/getsettedtemperatura'})
+                .then(function successCallback(response){
+                        $scope.editTemperature = parseInt(response.data.Temperature);
+                        $scope.listoButton = false;
+                        $scope.apagarButton = true;
+                },function errorCallback(response) {
+                        $scope.editTemperature =20;
+                });
+
                 $scope.setTemperatureReq = {
                         method: 'POST',
                         url: '/settemperatura/',
                         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=$'},
                         data: 'temperature = 20'
                 };
-                get({method: 'GET',url: '/getsettedtemperatura'})
-                    .then(function successCallback(response){
-                        $scope.editTemperaturetemperature = response.data.Temperature
-                    },function errorCallback(response) {
-                        $scope.editTemperature =20;
-                    });
-                
+
                 $scope.disminuir = function(){
                         $scope.editTemperature = $scope.editTemperature - 1;
+                        $scope.listoButton = true;
                 };
                 $scope.aumentar = function(){
                         $scope.editTemperature = $scope.editTemperature + 1;
+                        $scope.listoButton = true;
+                };
+                $scope.cancelar = function(){
+                        $scope.apagarButton = false;
                 };
                 $scope.setTemperature = function(){
                         $scope.setTemperatureReq.data = 'temperature='+$scope.editTemperature;
-                        post($scope.setTemperatureReq).then(function(response){
-
+                        http($scope.setTemperatureReq).then(function(response){
+                                $scope.apagarButton = true;
                         });
                 };
 }]);

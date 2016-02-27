@@ -16,7 +16,9 @@ class CrontabJob:
     def getTemperature(self):
         job = self.cron.find_comment('Termostaati')
         if job :
-            return job[58:60]
+            for jobs in job:
+                print jobs
+            return jobs.render()[68:70]
         else:
             return 0
 

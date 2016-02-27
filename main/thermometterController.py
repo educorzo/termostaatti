@@ -20,6 +20,13 @@ def getSettedTemperature(request):
     content = {'Temperature': crontabJob.getTemperature()}
     return Response(content)
 
+@api_view(['GET'])
+def deleteSettedTemperature(request):
+    crontabJob = CrontabJob()
+    crontabJob.deleteCronoJobs()
+    content = {'Status': 'Delete'}
+    return Response(content)
+
 @api_view(['POST'])
 def setTemperature(request):
     crontabJob = CrontabJob()

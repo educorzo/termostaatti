@@ -19,10 +19,11 @@
                     <h4>Hacen {{temperature.text}}</h4>
                 </div>
                 <div ng-controller="setTemperatureCtrl">
-                    <h1>{{editTemperature}}º</h1>
+                    <h1>{{editTemperature}}  </h1>
                     <button class="btn btn-danger" ng-click="disminuir()">-</button>
                     <button class="btn btn-info" ng-click="aumentar()">+</button>
-                    <button class="btn btn-primary" ng-click="setTemperature()">Iniciar</button>
+                    <button class="btn btn-primary" ng-show="listoButton"  ng-click="setTemperature()">Iniciar</button>
+                    <button class="btn btn-danger" ng-show="apagarButton" ng-click="cancelar()">Apagar caldera</button>
                 </div>
               <!--  <div ng-controller="buttonCtrl">
                     <button class="btn btn-danger btn-lg" ng-click="encender()" ng-show="showEncender">Encender caldera</button>
