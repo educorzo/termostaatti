@@ -23,8 +23,11 @@ def getSettedTemperature(request):
 @api_view(['GET'])
 def deleteSettedTemperature(request):
     crontabJob = CrontabJob()
-    crontabJob.deleteCronoJobs()
-    content = {'Status': 'Delete'}
+    if crontabJob.areCronoJobs():
+        crontabJob.deleteCronoJobs()
+        content = {'Status': 'Delete'}
+    else:
+        content = {'Status': 'No cronoJobs'}
     return Response(content)
 
 @api_view(['POST'])

@@ -6,7 +6,7 @@ script = 'sudo /usr/bin/python /home/pi/termostaatti/main/script.py'
 class CrontabJob:
     
     def __init__(self):
-        self.cron = CronTab()
+        self.cron = CronTab(user=True)
     
     def setTemperature(self, temperature):
         job = self.cron.new(command=script +' '+ temperature, comment='Termostaati')

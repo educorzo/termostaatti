@@ -38,7 +38,11 @@ termostaatti.controller('setTemperatureCtrl',['$scope','$http',
                         $scope.listoButton = true;
                 };
                 $scope.cancelar = function(){
-                        $scope.apagarButton = false;
+                        http({method: 'GET',url: '/deletesettedtemperatura'})
+                        .then(function successCallback(response){
+                            $scope.apagarButton = false;
+                            $scope.listoButton = true;
+                        });
                 };
                 $scope.setTemperature = function(){
                         $scope.setTemperatureReq.data = 'temperature='+$scope.editTemperature;
