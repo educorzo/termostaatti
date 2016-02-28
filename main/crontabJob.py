@@ -24,6 +24,7 @@ class CrontabJob:
 
     def deleteCronoJobs(self):
         self.cron.remove_all(comment='Termostaati')
+        self.cron.write()
     
     def areCronoJobs(self):
         return self.cron.find_comment('Termostaati')
